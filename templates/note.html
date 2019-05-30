@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block title %} First 5 authors {% endblock %}
+{% block body %}
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <h1>{{ note.name }}</h1>
+                <p>{{ note.content }}</p>
+                <div class="list-group">
+                    <nav class="nav">
+                        {% for tag in note.tags.all %}
+                            <a class="nav-link" href="#">{{ tag.name }}</a>
+                        {% endfor %}
+                    </nav>
+                    <p>{{ note.author.name }}</p>
+                </div>
+            </div>
+        </div>
+{% endblock %}

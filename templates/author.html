@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block title %} First 5 authors {% endblock %}
+{% block body %}
+    <div class="container">
+        <div class="row">
+            <div class="col">
+            <h1>{{ author.name }}</h1>
+                <div class="list-group">
+                    {% for note in notes %}
+                        <a href="{% url 'note' author.id note.id %}" class="list-group-item list-group-item-action">
+                            {{ note.id }} - {{ note.name }}
+                        </a>
+                    {% endfor %}
+                </div>
+            <button href="{% url 'notes' author.id %}" class="btn btn-primary btn-lg">All notes</button>
+            </div>
+        </div>
+    </div>
+{% endblock %}
